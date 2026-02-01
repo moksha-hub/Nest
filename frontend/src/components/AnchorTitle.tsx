@@ -8,7 +8,7 @@ interface AnchorTitleProps {
   title: string
 }
 
-const AnchorTitle: React.FC<AnchorTitleProps> = ({ title }) => {
+const AnchorTitle: React.FC<AnchorTitleProps> = ({ className, title }) => {
   const id = slugify(title)
   const href = `#${id}`
 
@@ -40,7 +40,7 @@ const AnchorTitle: React.FC<AnchorTitleProps> = ({ title }) => {
   }, [id, scrollToElement])
 
   return (
-    <div id={id} className="relative">
+    <div id={id} className={`relative ${className || ''}`}>
       <div className="group relative flex items-center">
         <div className="flex items-center text-2xl font-semibold" data-anchor-title="true">
           {title}
